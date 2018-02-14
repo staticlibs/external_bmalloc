@@ -35,7 +35,10 @@ add_custom_target ( ${PROJECT_NAME} DEPENDS bmalloc )
 
 # pkg-config
 set ( ${PROJECT_NAME}_MODULE bmalloc )
-set ( ${PROJECT_NAME}_PC_CFLAGS "-I${bmalloc_LOOKASIDE_DIR}/Source/bmalloc/bmalloc -Wno-expansion-to-defined" )
+set ( ${PROJECT_NAME}_PC_CFLAGS "-I${bmalloc_LOOKASIDE_DIR}/Source/bmalloc/bmalloc" )
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    set ( ${PROJECT_NAME}_PC_CFLAGS "${${PROJECT_NAME}_PC_CFLAGS} -Wno-expansion-to-defined" )
+endif ( )
 set ( ${PROJECT_NAME}_PC_LIBS "-L${CMAKE_LIBRARY_OUTPUT_DIRECTORY} -lbmalloc" )
 configure_file ( ${CMAKE_CURRENT_LIST_DIR}/resources/pkg-config.in 
         ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/pkgconfig/bmalloc.pc )
