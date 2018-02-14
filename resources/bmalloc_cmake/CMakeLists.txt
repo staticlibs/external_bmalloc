@@ -45,8 +45,10 @@ add_library ( ${PROJECT_NAME} STATIC
         ${${PROJECT_NAME}_SRC} )
 target_include_directories ( ${PROJECT_NAME} BEFORE PRIVATE
         ${${PROJECT_NAME}_LOOKASIDE_DIR}/Source/bmalloc/bmalloc )
-#target_compile_definitions ( ${PROJECT_NAME} PRIVATE ${${PROJECT_NAME}_DEFINITIONS} )
-target_compile_options ( ${PROJECT_NAME} PRIVATE -Wno-expansion-to-defined )
+
+if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+    target_compile_options ( ${PROJECT_NAME} PRIVATE -Wno-expansion-to-defined )
+endif ( )
 
 # check deplibs cache
 if ( STATICLIB_USE_DEPLIBS_CACHE )
