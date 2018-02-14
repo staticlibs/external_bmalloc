@@ -21,7 +21,7 @@ services:
 
 os:
   - linux
-#  - osx
+  - osx
 
 before_install:
   - export CC=
@@ -61,7 +61,7 @@ script:
     set +e ;
     pushd build-standalone ;
     set -e ;
-    cmake ../external_bmalloc ;
+    cmake ../external_bmalloc -DCMAKE_CXX_FLAGS=--std=c++14;
     make ;
     set +e;
     popd ;

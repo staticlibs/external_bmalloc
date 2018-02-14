@@ -15,6 +15,7 @@
 cmake_minimum_required ( VERSION 2.8.12 )
 
 # toolchain setup
+set ( STATICLIB_CXX_STANDARD c++14 CACHE INTERNAL "" )
 set ( STATICLIB_TOOLCHAIN linux_amd64_gcc CACHE STRING "toolchain triplet" )
 if ( NOT DEFINED STATICLIB_CMAKE )
     set ( STATICLIB_CMAKE ${CMAKE_CURRENT_LIST_DIR}/../../cmake CACHE INTERNAL "" )    

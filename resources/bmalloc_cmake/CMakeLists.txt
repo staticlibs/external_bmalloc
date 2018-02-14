@@ -36,7 +36,7 @@ set ( ${PROJECT_NAME}_SRC
 
 if ( CMAKE_SYSTEM_NAME MATCHES "Darwin" )
     list ( APPEND ${${PROJECT_NAME}_SRC}
-        ${${PROJECT_NAME}_LOOKASIDE_DIR}/Source/bmalloc/bmalloc/Zone.cpp )
+            ${${PROJECT_NAME}_LOOKASIDE_DIR}/Source/bmalloc/bmalloc/Zone.cpp )
 endif ()
 source_group ( "src" FILES ${${PROJECT_NAME}_SRC} )
 
